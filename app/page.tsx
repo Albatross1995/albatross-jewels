@@ -213,7 +213,6 @@ export default function Home() {
         }}
       >
         <h2>Your Cart</h2>
-<p>TEST REMOVE BUTTON VERSION</p>
         {cart.length === 0 ? (
           <p>No products added yet.</p>
         ) : (
