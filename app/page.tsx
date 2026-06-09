@@ -5,6 +5,10 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
 
+const [name, setName] = useState("");
+const [phone, setPhone] = useState("");
+const [address, setAddress] = useState("");
+
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
 
@@ -51,6 +55,10 @@ export default function Home() {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   const orderOnWhatsApp = () => {
+    if (!name || !phone || !address) {
+  alert("Please fill all customer details");
+  return;
+}
     if (cart.length === 0) {
       alert("Cart is empty");
       return;
@@ -61,7 +69,12 @@ export default function Home() {
       .join("%0A");
 
     const message =
-      `Hello Albatross Jewels,%0A%0AI want to order:%0A${items}%0A%0ATotal: ₹${total}`;
+  `Hello Albatross Jewels,%0A%0A` +
+  `Name: ${name}%0A` +
+  `Phone: ${phone}%0A` +
+  `Address: ${address}%0A%0A` +
+  `Order:%0A${items}%0A%0A` +
+  `Total: ₹${total}`;
 
     window.open(
       `https://wa.me/918851304467?text=${message}`,
@@ -213,6 +226,42 @@ export default function Home() {
         }}
       >
         <h2>Your Cart</h2>
+        <div style={{ marginBottom: "20px" }}>
+  <input
+    type="text"
+    placeholder="Your Name"
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    style={{
+      width: "100%",
+      padding: "10px",
+      marginBottom: "10px",
+    }}
+  />
+
+  <input
+    type="text"
+    placeholder="Phone Number"
+    value={phone}
+    onChange={(e) => setPhone(e.target.value)}
+    style={{
+      width: "100%",
+      padding: "10px",
+      marginBottom: "10px",
+    }}
+  />
+
+  <textarea
+    placeholder="Delivery Address"
+    value={address}
+    onChange={(e) => setAddress(e.target.value)}
+    style={{
+      width: "100%",
+      padding: "10px",
+      minHeight: "80px",
+    }}
+  />
+</div>
         {cart.length === 0 ? (
           <p>No products added yet.</p>
         ) : (
