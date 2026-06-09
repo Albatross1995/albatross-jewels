@@ -1,9 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const products = [
     {
@@ -30,10 +42,32 @@ export default function Home() {
 
   const addToCart = (product: any) => {
     setCart([...cart, product]);
-    alert(`${product.name} added to cart`);
+  };
+
+  const removeFromCart = (indexToRemove: number) => {
+    setCart(cart.filter((_, index) => index !== indexToRemove));
   };
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  const orderOnWhatsApp = () => {
+    if (cart.length === 0) {
+      alert("Cart is empty");
+      return;
+    }
+
+    const items = cart
+      .map((item) => `${item.name} - ₹${item.price}`)
+      .join("%0A");
+
+    const message =
+      `Hello Albatross Jewels,%0A%0AI want to order:%0A${items}%0A%0ATotal: ₹${total}`;
+
+    window.open(
+      `https://wa.me/918851304467?text=${message}`,
+      "_blank"
+    );
+  };
 
   return (
     <main style={{ fontFamily: "Arial, sans-serif" }}>
@@ -171,7 +205,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cart Section */}
+      {/* Cart */}
       <section
         style={{
           padding: "40px",
@@ -179,7 +213,7 @@ export default function Home() {
         }}
       >
         <h2>Your Cart</h2>
-
+<p>TEST REMOVE BUTTON VERSION</p>
         {cart.length === 0 ? (
           <p>No products added yet.</p>
         ) : (
@@ -193,18 +227,53 @@ export default function Home() {
                   marginBottom: "10px",
                   borderRadius: "8px",
                   border: "1px solid #ddd",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                {item.name} - ₹{item.price}
+                <span>
+                  {item.name} - ₹{item.price}
+                </span>
+
+                <button
+                  onClick={() => removeFromCart(index)}
+                  style={{
+                    background: "red",
+                    color: "white",
+                    border: "none",
+                    padding: "8px 12px",
+                    borderRadius: "6px",
+                    cursor: "pointer",
+                  }}
+                >
+                  Remove
+                </button>
               </div>
             ))}
 
             <h2>Total: ₹{total}</h2>
+
+            <button
+              onClick={orderOnWhatsApp}
+              style={{
+                background: "#25D366",
+                color: "white",
+                border: "none",
+                padding: "15px 25px",
+                borderRadius: "8px",
+                cursor: "pointer",
+                fontWeight: "bold",
+                marginTop: "10px",
+              }}
+            >
+              Buy Now On WhatsApp
+            </button>
           </>
         )}
       </section>
 
-      {/* WhatsApp Button */}
+      {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/918851304467"
         target="_blank"
