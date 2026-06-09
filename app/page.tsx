@@ -1,29 +1,43 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [cart, setCart] = useState<any[]>([]);
+
   const products = [
     {
       name: "Gold Plated Chain",
-      price: "₹499",
+      price: 499,
       image: "/products/gold-chain.jpeg",
     },
     {
       name: "Rose Gold Ring",
-      price: "₹499",
+      price: 499,
       image: "/products/rose-gold-ring.jpeg",
     },
     {
       name: "Swan Gold Ring",
-      price: "₹999",
+      price: 999,
       image: "/products/swan-gold-ring.jpeg",
     },
     {
       name: "Love Alphabet Rose Gold Ring",
-      price: "₹699",
+      price: 699,
       image: "/products/love-ring.jpeg",
     },
   ];
 
+  const addToCart = (product: any) => {
+    setCart([...cart, product]);
+    alert(`${product.name} added to cart`);
+  };
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+
   return (
     <main style={{ fontFamily: "Arial, sans-serif" }}>
+      {/* Top Bar */}
       <div
         style={{
           background: "#b76e79",
@@ -36,24 +50,32 @@ export default function Home() {
         ✨ FREE SHIPPING ALL OVER INDIA ✨
       </div>
 
+      {/* Header */}
       <header
         style={{
           display: "flex",
           justifyContent: "space-between",
-          padding: "20px",
           alignItems: "center",
+          padding: "20px",
           borderBottom: "1px solid #eee",
         }}
       >
         <h1 style={{ color: "#b76e79" }}>ALBATROSS JEWELS</h1>
 
-        <nav style={{ display: "flex", gap: "20px" }}>
-          <a href="#">Home</a>
-          <a href="#">Shop</a>
-          <a href="#">Contact</a>
-        </nav>
+        <div
+          style={{
+            background: "#b76e79",
+            color: "white",
+            padding: "10px 15px",
+            borderRadius: "20px",
+            fontWeight: "bold",
+          }}
+        >
+          🛒 Cart ({cart.length})
+        </div>
       </header>
 
+      {/* Hero */}
       <section
         style={{
           textAlign: "center",
@@ -61,7 +83,7 @@ export default function Home() {
           background: "#fdf6f7",
         }}
       >
-        <h1 style={{ fontSize: "48px", color: "#7a2330" }}>
+        <h1 style={{ fontSize: "50px", color: "#7a2330" }}>
           Luxury You Deserve
         </h1>
 
@@ -83,6 +105,7 @@ export default function Home() {
         </button>
       </section>
 
+      {/* Products */}
       <section style={{ padding: "40px" }}>
         <h2 style={{ textAlign: "center" }}>Our Best Sellers</h2>
 
@@ -102,6 +125,7 @@ export default function Home() {
                 borderRadius: "12px",
                 overflow: "hidden",
                 background: "#fff",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
               }}
             >
               <img
@@ -124,17 +148,19 @@ export default function Home() {
                     fontWeight: "bold",
                   }}
                 >
-                  {product.price}
+                  ₹{product.price}
                 </p>
 
                 <button
+                  onClick={() => addToCart(product)}
                   style={{
                     width: "100%",
-                    padding: "10px",
+                    padding: "12px",
                     background: "#b76e79",
                     color: "white",
                     border: "none",
                     borderRadius: "8px",
+                    cursor: "pointer",
                   }}
                 >
                   Add To Cart
@@ -145,8 +171,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Cart Section */}
+      <section
+        style={{
+          padding: "40px",
+          background: "#f8f8f8",
+        }}
+      >
+        <h2>Your Cart</h2>
+
+        {cart.length === 0 ? (
+          <p>No products added yet.</p>
+        ) : (
+          <>
+            {cart.map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  background: "white",
+                  padding: "15px",
+                  marginBottom: "10px",
+                  borderRadius: "8px",
+                  border: "1px solid #ddd",
+                }}
+              >
+                {item.name} - ₹{item.price}
+              </div>
+            ))}
+
+            <h2>Total: ₹{total}</h2>
+          </>
+        )}
+      </section>
+
+      {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919999999999"
+        href="https://wa.me/918851304467"
         target="_blank"
         rel="noreferrer"
         style={{
@@ -164,6 +224,7 @@ export default function Home() {
         WhatsApp Order
       </a>
 
+      {/* Footer */}
       <footer
         style={{
           background: "#111",
@@ -175,6 +236,7 @@ export default function Home() {
       >
         <h2>Albatross Jewels</h2>
         <p>Elegance For Every Occasion</p>
+        <p>📱 WhatsApp: +91 8851304467</p>
       </footer>
     </main>
   );
