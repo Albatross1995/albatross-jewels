@@ -45,14 +45,53 @@ const [address, setAddress] = useState("");
   ];
 
   const addToCart = (product: any) => {
-    setCart([...cart, product]);
-  };
+  const existingProduct = cart.find(
+    (item) => item.name === product.name
+  );
+
+  if (existingProduct) {
+    setCart(
+      cart.map((item) =>
+        item.name === product.name
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  } else {
+    setCart([...cart, { ...product, quantity: 1 }]);
+  }
+};
 
   const removeFromCart = (indexToRemove: number) => {
     setCart(cart.filter((_, index) => index !== indexToRemove));
   };
+const increaseQuantity = (productName: string) => {
+  setCart(
+    cart.map((item) =>
+      item.name === productName
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    )
+  );
+};
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+const decreaseQuantity = (productName: string) => {
+  setCart(
+    cart
+      .map((item) =>
+        item.name === productName
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter((item) => item.quantity > 0)
+  );
+};
+
+
+ const total = cart.reduce(
+  (sum, item) => sum + item.price * item.quantity,
+  0
+);
 
   const orderOnWhatsApp = () => {
     if (!name || !phone || !address) {
@@ -281,23 +320,35 @@ const [address, setAddress] = useState("");
                 }}
               >
                 <span>
-                  {item.name} - ₹{item.price}
-                </span>
+  {item.name} × {item.quantity} - ₹
+  {item.price * item.quantity}
+</span>
 
-                <button
-                  onClick={() => removeFromCart(index)}
-                  style={{
-                    background: "red",
-                    color: "white",
-                    border: "none",
-                    padding: "8px 12px",
-                    borderRadius: "6px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
+<div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+  <button onClick={() => decreaseQuantity(item.name)}>
+    -
+  </button>
+
+  <span>{item.quantity}</span>
+
+  <button onClick={() => increaseQuantity(item.name)}>
+    +
+  </button>
+
+  <button
+    onClick={() => removeFromCart(index)}
+    style={{
+      background: "red",
+      color: "white",
+      border: "none",
+      padding: "8px 12px",
+      borderRadius: "6px",
+      cursor: "pointer",
+    }}
+  >
+    Remove
+  </button>
+</div>
             ))}
 
             <h2>Total: ₹{total}</h2>
