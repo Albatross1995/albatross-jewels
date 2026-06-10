@@ -349,6 +349,7 @@ const decreaseQuantity = (productName: string) => {
     Remove
   </button>
 </div>
+</div>
             ))}
 
             <h2>Total: ₹{total}</h2>
