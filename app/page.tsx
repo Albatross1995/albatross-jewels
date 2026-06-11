@@ -101,14 +101,26 @@ const totalItems = cart.reduce(
   alert("Please fill all customer details");
   return;
 }
+ if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Please enter a valid 10 digit phone number");
+    return;
+  }
+
+  if (cart.length === 0) {
+    alert("Cart is empty");
+    return;
+  }
     if (cart.length === 0) {
       alert("Cart is empty");
       return;
     }
 
     const items = cart
-      .map((item) => `${item.name} - ₹${item.price}`)
-      .join("%0A");
+  .map(
+    (item) =>
+      `${item.name} × ${item.quantity} = ₹${item.price * item.quantity}`
+  )
+  .join("%0A");
 
     const message =
   `Hello Albatross Jewels,%0A%0A` +
@@ -118,6 +130,7 @@ const totalItems = cart.reduce(
   `Order:%0A${items}%0A%0A` +
   `Total: ₹${total}`;
 
+alert("✅ Redirecting to WhatsApp...");
     window.open(
       `https://wa.me/918851304467?text=${message}`,
       "_blank"
@@ -372,6 +385,22 @@ const totalItems = cart.reduce(
             >
               Buy Now On WhatsApp
             </button>
+
+            <button
+  style={{
+    background: "#7a2330",
+    color: "white",
+    border: "none",
+    padding: "15px 25px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: "bold",
+    marginTop: "10px",
+    marginLeft: "10px",
+  }}
+>
+  Pay Online (Coming Soon)
+</button>
           </>
         )}
       </section>
