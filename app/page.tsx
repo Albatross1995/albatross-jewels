@@ -87,7 +87,10 @@ const decreaseQuantity = (productName: string) => {
   );
 };
 
-
+const totalItems = cart.reduce(
+  (sum, item) => sum + item.quantity,
+  0
+);
  const total = cart.reduce(
   (sum, item) => sum + item.price * item.quantity,
   0
@@ -157,7 +160,7 @@ const decreaseQuantity = (productName: string) => {
             fontWeight: "bold",
           }}
         >
-          🛒 Cart ({cart.length})
+          🛒 Cart ({totalItems})
         </div>
       </header>
 
