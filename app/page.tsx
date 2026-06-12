@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
-
+const [selectedCategory, setSelectedCategory] =
+  useState("All");
 const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
 const [address, setAddress] = useState("");
@@ -26,21 +27,26 @@ const [address, setAddress] = useState("");
       name: "Gold Plated Chain",
       price: 499,
       image: "/products/gold-chain.jpeg",
+      category: "Chain",
+
     },
     {
       name: "Rose Gold Ring",
       price: 499,
       image: "/products/rose-gold-ring.jpeg",
+       category: "Ring",
     },
     {
       name: "Swan Gold Ring",
       price: 999,
       image: "/products/swan-gold-ring.jpeg",
+      category: "Ring",
     },
     {
       name: "Love Alphabet Rose Gold Ring",
       price: 699,
       image: "/products/love-ring.jpeg",
+      category: "Ring",
     },
   ];
 
@@ -210,7 +216,38 @@ alert("✅ Redirecting to WhatsApp...");
       {/* Products */}
       <section style={{ padding: "40px" }}>
         <h2 style={{ textAlign: "center" }}>Our Best Sellers</h2>
-
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "10px",
+    marginTop: "20px",
+    marginBottom: "20px",
+  }}
+>
+  {["All", "Ring", "Chain"].map((category) => (
+    <button
+      key={category}
+      onClick={() => setSelectedCategory(category)}
+      style={{
+        padding: "10px 20px",
+        border: "none",
+        borderRadius: "8px",
+        cursor: "pointer",
+        background:
+          selectedCategory === category
+            ? "#b76e79"
+            : "#ddd",
+        color:
+          selectedCategory === category
+            ? "white"
+            : "black",
+      }}
+    >
+      {category}
+    </button>
+  ))}
+</div>
         <div
           style={{
             display: "grid",
@@ -219,7 +256,13 @@ alert("✅ Redirecting to WhatsApp...");
             marginTop: "30px",
           }}
         >
-          {products.map((product) => (
+          {products
+  .filter(
+    (product) =>
+      selectedCategory === "All" ||
+      product.category === selectedCategory
+  )
+  .map((product) => (
             <div
               key={product.name}
               style={{
