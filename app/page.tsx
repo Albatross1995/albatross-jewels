@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [cart, setCart] = useState<any[]>([]);
-const [selectedCategory, setSelectedCategory] =
-  useState("All");
+const [selectedCategory, setSelectedCategory] =useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
 const [address, setAddress] = useState("");
@@ -248,6 +248,21 @@ alert("✅ Redirecting to WhatsApp...");
     </button>
   ))}
 </div>
+<input
+  type="text"
+  placeholder="Search jewellery..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  style={{
+    width: "100%",
+    maxWidth: "400px",
+    padding: "12px",
+    margin: "20px auto",
+    display: "block",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+  }}
+/>
         <div
           style={{
             display: "grid",
@@ -259,8 +274,11 @@ alert("✅ Redirecting to WhatsApp...");
           {products
   .filter(
     (product) =>
-      selectedCategory === "All" ||
-      product.category === selectedCategory
+      (selectedCategory === "All" ||
+        product.category === selectedCategory) &&
+      product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
   )
   .map((product) => (
             <div
