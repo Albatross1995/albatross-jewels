@@ -9,6 +9,8 @@ const [selectedCategory, setSelectedCategory] =useState("All");
 const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
 const [address, setAddress] = useState("");
+const [coupon, setCoupon] = useState("");
+const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -628,10 +630,8 @@ alert("✅ Redirecting to WhatsApp...");
       color: "#333",
     }}
   >
-    <p>✅ Premium Quality Jewellery</p>
-    <p>✅ Cash On Delivery Available</p>
-    <p>✅ Fast Shipping Across India</p>
-    <p>✅ Trusted By Happy Customers</p>
+    <p>✅ Premium Quality Jewellery       *Cash On Delivery Available</p>
+    <p>✅ Fast Shipping Across India      *Trusted By Happy Customers</p>
   </div>
 </section>
 
