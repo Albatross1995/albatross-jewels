@@ -630,8 +630,8 @@ alert("✅ Redirecting to WhatsApp...");
       color: "#333",
     }}
   >
-    <p>✅ Premium Quality Jewellery       *Cash On Delivery Available</p>
-    <p>✅ Fast Shipping Across India      *Trusted By Happy Customers</p>
+    <p>✅   Premium Quality Jewellery     ✅    *Cash On Delivery Available</p>
+    <p>✅   Fast Shipping Across India    ✅    *Trusted By Happy Customers</p>
   </div>
 </section>
 
