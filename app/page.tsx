@@ -216,6 +216,22 @@ alert("✅ Redirecting to WhatsApp...");
         </button>
       </section>
 
+<section
+  style={{
+    background: "#fff5f7",
+    padding: "40px 20px",
+    textAlign: "center",
+  }}
+>
+  <h2 style={{ color: "#7a2330" }}>
+    ⭐ Featured Collection
+  </h2>
+
+  <p style={{ fontSize: "18px" }}>
+    Explore our most loved jewellery pieces.
+  </p>
+</section>
+
       {/* Products */}
       <section style={{ padding: "40px" }}>
         <h2 style={{ textAlign: "center" }}>Our Best Sellers</h2>
@@ -585,6 +601,21 @@ alert("✅ Redirecting to WhatsApp...");
       <strong>- Anjali</strong>
     </div>
   </div>
+</section>
+
+<section
+  style={{
+    padding: "40px",
+    textAlign: "center",
+    background: "#fff",
+  }}
+>
+  <h2>Why Choose Albatross Jewels?</h2>
+
+  <p>✅ Premium Quality Jewellery</p>
+  <p>✅ Cash On Delivery Available</p>
+  <p>✅ Fast Shipping Across India</p>
+  <p>✅ Trusted By Happy Customers</p>
 </section>
 
       </footer>
