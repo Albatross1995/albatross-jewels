@@ -105,7 +105,19 @@ const totalItems = cart.reduce(
  const total = cart.reduce(
   (sum, item) => sum + item.price * item.quantity,
   0
+  const finalTotal = total - discount;
 );
+const applyCoupon = () => {
+  if (coupon === "ALBATROSS10") {
+    setDiscount(total * 0.1);
+    alert("10% Discount Applied!");
+  } else if (coupon === "WELCOME50") {
+    setDiscount(50);
+    alert("₹50 Discount Applied!");
+  } else {
+    alert("Invalid Coupon");
+  }
+};
 
   const orderOnWhatsApp = () => {
     if (!name || !phone || !address) {
@@ -139,7 +151,7 @@ const totalItems = cart.reduce(
   `Phone: ${phone}%0A` +
   `Address: ${address}%0A%0A` +
   `Order:%0A${items}%0A%0A` +
-  `Total: ₹${total}`;
+  `Total: ₹${finalTotal}`;
 
 alert("✅ Redirecting to WhatsApp...");
     window.open(
@@ -473,7 +485,43 @@ alert("✅ Redirecting to WhatsApp...");
 </div>
             ))}
 
-            <h2>Total: ₹{total}</h2>
+<div style={{ marginTop: "20px" }}>
+  <input
+    type="text"
+    placeholder="Enter Coupon Code"
+    value={coupon}
+    onChange={(e) => setCoupon(e.target.value)}
+    style={{
+      padding: "10px",
+      marginRight: "10px",
+    }}
+  />
+
+  <button
+    onClick={applyCoupon}
+    style={{
+      background: "#7a2330",
+      color: "white",
+      border: "none",
+      padding: "10px 15px",
+      borderRadius: "6px",
+      cursor: "pointer",
+    }}
+  >
+    Apply Coupon
+  </button>
+</div>
+            <>
+  <h3>Subtotal: ₹{total}</h3>
+
+  {discount > 0 && (
+    <h3 style={{ color: "green" }}>
+      Discount: -₹{discount}
+    </h3>
+  )}
+
+  <h2>Total: ₹{finalTotal}</h2>
+</>
 
             <button
               onClick={orderOnWhatsApp}
@@ -630,8 +678,8 @@ alert("✅ Redirecting to WhatsApp...");
       color: "#333",
     }}
   >
-    <p>✅   Premium Quality Jewellery     ✅    *Cash On Delivery Available</p>
-    <p>✅   Fast Shipping Across India    ✅    *Trusted By Happy Customers</p>
+    <p>✅   Premium Quality Jewellery     ✅    Cash On Delivery Available</p>
+    <p>✅   Fast Shipping Across India    ✅    Trusted By Happy Customers</p>
   </div>
 </section>
 
