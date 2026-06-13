@@ -525,6 +525,68 @@ alert("✅ Redirecting to WhatsApp...");
         <h2>Albatross Jewels</h2>
         <p>Elegance For Every Occasion</p>
         <p>📱 WhatsApp: +91 8851304467</p>
+<section
+  style={{
+    padding: "50px 20px",
+    background: "#fdf6f7",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      color: "#7a2330",
+      marginBottom: "30px",
+    }}
+  >
+    Customer Reviews
+  </h2>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns:
+        "repeat(auto-fit,minmax(250px,1fr))",
+      gap: "20px",
+    }}
+  >
+    <div
+      style={{
+        background: "white",
+        padding: "20px",
+        borderRadius: "12px",
+      }}
+    >
+      ⭐⭐⭐⭐⭐
+      <p>Beautiful quality jewellery.</p>
+      <strong>- Priya</strong>
+    </div>
+
+    <div
+      style={{
+        background: "white",
+        padding: "20px",
+        borderRadius: "12px",
+      }}
+    >
+      ⭐⭐⭐⭐⭐
+      <p>Fast delivery and amazing design.</p>
+      <strong>- Neha</strong>
+    </div>
+
+    <div
+      style={{
+        background: "white",
+        padding: "20px",
+        borderRadius: "12px",
+      }}
+    >
+      ⭐⭐⭐⭐⭐
+      <p>Looks exactly like real gold.</p>
+      <strong>- Anjali</strong>
+    </div>
+  </div>
+</section>
+
       </footer>
     </main>
   );
