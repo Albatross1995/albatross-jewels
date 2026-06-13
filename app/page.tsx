@@ -105,8 +105,9 @@ const totalItems = cart.reduce(
  const total = cart.reduce(
   (sum, item) => sum + item.price * item.quantity,
   0
-  const finalTotal = total - discount;
 );
+const finalTotal = total - discount;
+
 const applyCoupon = () => {
   if (coupon === "ALBATROSS10") {
     setDiscount(total * 0.1);
