@@ -605,17 +605,34 @@ alert("✅ Redirecting to WhatsApp...");
 
 <section
   style={{
-    padding: "40px",
+    padding: "50px 20px",
     textAlign: "center",
-    background: "#fff",
+    background: "#ffffff",
   }}
 >
-  <h2>Why Choose Albatross Jewels?</h2>
+  <h2
+    style={{
+      color: "#7a2330",
+      marginBottom: "20px",
+    }}
+  >
+    Why Choose Albatross Jewels?
+  </h2>
 
-  <p>✅ Premium Quality Jewellery</p>
-  <p>✅ Cash On Delivery Available</p>
-  <p>✅ Fast Shipping Across India</p>
-  <p>✅ Trusted By Happy Customers</p>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+      fontSize: "18px",
+      color: "#333",
+    }}
+  >
+    <p>✅ Premium Quality Jewellery</p>
+    <p>✅ Cash On Delivery Available</p>
+    <p>✅ Fast Shipping Across India</p>
+    <p>✅ Trusted By Happy Customers</p>
+  </div>
 </section>
 
       </footer>
