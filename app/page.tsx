@@ -28,25 +28,28 @@ const [address, setAddress] = useState("");
       price: 499,
       image: "/products/gold-chain.jpeg",
       category: "Chain",
-
+description: "Premium Artificial Gold Plated Chain",
     },
     {
       name: "Rose Gold Ring",
       price: 499,
       image: "/products/rose-gold-ring.jpeg",
        category: "Ring",
+       description: "Elegant Rose Gold Ring",
     },
     {
       name: "Swan Gold Ring",
       price: 999,
       image: "/products/swan-gold-ring.jpeg",
       category: "Ring",
+      description: "Graceful Swan Gold Ring",
     },
     {
       name: "Love Alphabet Rose Gold Ring",
       price: 699,
       image: "/products/love-ring.jpeg",
       category: "Ring",
+      description: "Romantic Love Alphabet Rose Gold Ring",
     },
   ];
 
@@ -314,6 +317,29 @@ alert("✅ Redirecting to WhatsApp...");
                   ₹{product.price}
                 </p>
 
+<p
+  style={{
+    color: "#666",
+    fontSize: "14px",
+    marginTop: "8px",
+  }}
+>
+  {product.description}
+</p>
+
+<span
+  style={{
+    background: "#fdf0f3",
+    color: "#b76e79",
+    padding: "5px 10px",
+    borderRadius: "20px",
+    fontSize: "12px",
+    display: "inline-block",
+    marginTop: "8px",
+  }}
+>
+  {product.category}
+</span>
                 <button
                   onClick={() => addToCart(product)}
                   style={{
