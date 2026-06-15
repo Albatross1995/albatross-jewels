@@ -713,7 +713,7 @@ alert("✅ Redirecting to WhatsApp...");
       marginBottom: "20px",
     }}
   >
-    
+
 <section
   style={{
     padding: "50px 20px",
@@ -765,6 +765,20 @@ alert("✅ Redirecting to WhatsApp...");
     <p>✅   Premium Quality Jewellery     ✅    Cash On Delivery Available</p>
     <p>✅   Fast Shipping Across India    ✅    Trusted By Happy Customers</p>
   </div>
+</section>
+
+<section
+  style={{
+    padding: "50px 20px",
+    background: "#fdf6f7",
+    textAlign: "center",
+  }}
+>
+  <h2 style={{ color: "#7a2330" }}>Contact Us</h2>
+
+  <p>📱 WhatsApp: +91 8851304467</p>
+  <p>📧 Email: support@albatrossjewels.com</p>
+  <p>🚚 Shipping Available Across India</p>
 </section>
 
       </footer>
