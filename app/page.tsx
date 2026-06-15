@@ -650,6 +650,7 @@ alert("✅ Redirecting to WhatsApp...");
       marginBottom: "30px",
     }}
   >
+
     Customer Reviews
   </h2>
 
@@ -712,6 +713,43 @@ alert("✅ Redirecting to WhatsApp...");
       marginBottom: "20px",
     }}
   >
+    
+<section
+  style={{
+    padding: "50px 20px",
+    background: "#fff",
+  }}
+>
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
+      gap: "20px",
+      textAlign: "center",
+    }}
+  >
+    <div>
+      <h2 style={{ color: "#b76e79" }}>500+</h2>
+      <p>Happy Customers</p>
+    </div>
+
+    <div>
+      <h2 style={{ color: "#b76e79" }}>1000+</h2>
+      <p>Orders Delivered</p>
+    </div>
+
+    <div>
+      <h2 style={{ color: "#b76e79" }}>100%</h2>
+      <p>Premium Quality</p>
+    </div>
+
+    <div>
+      <h2 style={{ color: "#b76e79" }}>India</h2>
+      <p>Shipping Available</p>
+    </div>
+  </div>
+</section>
+
     Why Choose Albatross Jewels?
   </h2>
 
