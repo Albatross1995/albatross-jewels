@@ -47,6 +47,51 @@ description: "Premium Artificial Gold Plated Chain",
       description: "Graceful Swan Gold Ring",
     },
     {
+  name: "Rose Gold Pendant",
+  price: 599,
+  image: "/products/rose-gold-pendant.jpeg",
+  category: "Pendant",
+  description:
+    "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
+  bestseller: false,
+},
+ {
+  name: "Rose Gold Pendant",
+  price: 599,
+  image: "/products/rose-gold-pendant1.jpeg",
+  category: "Pendant",
+  description:
+    "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
+  bestseller: false,
+},
+ {
+  name: "Rose Gold Pendant",
+  price: 599,
+  image: "/products/rose-gold-pendant2.jpeg",
+  category: "Pendant",
+  description:
+    "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
+  bestseller: false,
+},
+{
+  name: "Rose Gold Mangtika",
+  price: 399,
+  image: "/products/rose-gold-mangtika.jpeg",
+  category: "Mangtika",
+  description:
+    "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
+  bestseller: false,
+},
+{
+  name: "Rose Gold Mangtika",
+  price: 399,
+  image: "/products/rose-gold-mangtika1.jpeg",
+  category: "Mangtika",
+  description:
+    "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
+  bestseller: false,
+},
+    {
       name: "Love Alphabet Rose Gold Ring",
       price: 699,
       image: "/products/love-ring.jpeg",
@@ -259,7 +304,7 @@ alert("✅ Redirecting to WhatsApp...");
     marginBottom: "20px",
   }}
 >
-  {["All", "Ring", "Chain"].map((category) => (
+  {["All", "Ring", "Chain", "Earring", "Mangtika", "Pendant"].map((category) => (
     <button
       key={category}
       onClick={() => setSelectedCategory(category)}
