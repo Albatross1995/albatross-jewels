@@ -76,7 +76,7 @@ description: "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear Chain",
 {
   name: "Rose Gold Mangtika",
   price: 399,
-  image: "/products/rose-gold-mangtika.jpeg",
+  image: "/products/rajwada-gold-mangtika.jpeg",
   category: "Mangtika",
   description:
     "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
@@ -85,7 +85,7 @@ description: "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear Chain",
 {
   name: "Rose Gold Mangtika",
   price: 399,
-  image: "/products/rose-gold-mangtika1.jpeg",
+  image: "/products/rajwada-gold-mangtika1.jpeg",
   category: "Mangtika",
   description:
     "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear and Skin Friendly",
