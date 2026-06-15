@@ -770,7 +770,7 @@ alert("✅ Redirecting to WhatsApp...");
 <section
   style={{
     padding: "50px 20px",
-    background: "#fdf6f7",
+    background: "#4f22be",
     textAlign: "center",
   }}
 >
