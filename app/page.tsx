@@ -710,21 +710,7 @@ alert("✅ Redirecting to WhatsApp...");
       >
         WhatsApp Order
       </a>
-
-      {/* Footer */}
-      <footer
-        style={{
-          background: "#111",
-          color: "white",
-          textAlign: "center",
-          padding: "40px",
-          marginTop: "40px",
-        }}
-      >
-        <h2>Albatross Jewels</h2>
-        <p>Elegance For Every Occasion</p>
-        <p>📱 WhatsApp: +91 8851304467</p>
-<section
+      <section
   style={{
     padding: "50px 20px",
     background: "#fdf6f7",
@@ -867,6 +853,21 @@ alert("✅ Redirecting to WhatsApp...");
   <p>📧 Email: support@albatrossjewels.com</p>
   <p>🚚 Shipping Available Across India</p>
 </section>
+
+      {/* Footer */}
+      <footer
+        style={{
+          background: "#111",
+          color: "white",
+          textAlign: "center",
+          padding: "40px",
+          marginTop: "40px",
+        }}
+      >
+        <h2>Albatross Jewels</h2>
+        <p>Elegance For Every Occasion</p>
+        <p>📱 WhatsApp: +91 8851304467</p>
+
 
       </footer>
     </main>
