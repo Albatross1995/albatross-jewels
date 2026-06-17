@@ -255,128 +255,41 @@ alert("✅ Redirecting to WhatsApp...");
         }}
       >
         <h1 style={{ fontSize: "50px", color: "#7a2330" }}>
-         <section
+          Luxury You Deserve
+        </h1>
+
+        <p style={{ fontSize: "20px" }}>
+          Premium Artificial Jewellery Crafted For Every Moment
+        </p>
+
+        <button
+          style={{
+            background: "#b76e79",
+            color: "white",
+            border: "none",
+            padding: "15px 30px",
+            borderRadius: "8px",
+            cursor: "pointer",
+          }}
+        >
+          Shop Now
+        </button>
+      </section>
+
+<section
   style={{
-    background:
-      "linear-gradient(to right, #fff5f7, #fdecef)",
-    padding: "60px 30px",
+    background: "#fff5f7",
+    padding: "40px 20px",
+    textAlign: "center",
   }}
 >
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns:
-        "repeat(auto-fit,minmax(300px,1fr))",
-      alignItems: "center",
-      gap: "30px",
-    }}
-  >
-    {/* Left Side */}
-    <div>
-      <h1
-        style={{
-          fontSize: "60px",
-          color: "#7a2330",
-          marginBottom: "10px",
-          lineHeight: "1.1",
-        }}
-      >
-        ALBATROSS
-        <br />
-        JEWELS
-      </h1>
+  <h2 style={{ color: "#7a2330" }}>
+    ⭐ Featured Collection
+  </h2>
 
-      <h2
-        style={{
-          color: "#c08b3e",
-          fontWeight: "normal",
-          fontSize: "40px",
-          marginBottom: "20px",
-        }}
-      >
-        Luxury You Deserve
-      </h2>
-
-      <p
-        style={{
-          fontSize: "22px",
-          color: "#555",
-          marginBottom: "25px",
-        }}
-      >
-        Premium Artificial Jewellery Crafted For
-        Every Moment
-      </p>
-
-      <button
-        style={{
-          background: "#7a2330",
-          color: "white",
-          border: "none",
-          padding: "15px 35px",
-          borderRadius: "30px",
-          cursor: "pointer",
-          fontSize: "18px",
-          fontWeight: "bold",
-        }}
-      >
-        SHOP NOW →
-      </button>
-    </div>
-
-    {/* Right Side */}
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "15px",
-      }}
-    >
-      <img
-        src="/products/gold-chain.jpeg"
-        alt="Gold Chain"
-        style={{
-          width: "100%",
-          borderRadius: "15px",
-          height: "250px",
-          objectFit: "cover",
-        }}
-      />
-
-      <img
-        src="/products/rose-gold-ring.jpeg"
-        alt="Ring"
-        style={{
-          width: "100%",
-          borderRadius: "15px",
-          height: "250px",
-          objectFit: "cover",
-        }}
-      />
-
-      <img
-        src="/products/swan-gold-ring.jpeg"
-        alt="Swan Ring"
-        style={{
-          width: "100%",
-          borderRadius: "15px",
-          height: "250px",
-          objectFit: "cover",
-        }}
-      />
-
-      <img
-        src="/products/rose-gold-pendant.jpeg"
-        alt="Pendant"
-        style={{
-          width: "100%",
-          borderRadius: "15px",
-          height: "250px",
-          objectFit: "cover",
-        }}
-      />
-    </div>
-  </div>
+  <p style={{ fontSize: "18px" }}>
+    Explore our most loved jewellery pieces.
+  </p>
 </section>
 
       {/* Products */}
@@ -710,7 +623,21 @@ alert("✅ Redirecting to WhatsApp...");
       >
         WhatsApp Order
       </a>
-      <section
+
+      {/* Footer */}
+      <footer
+        style={{
+          background: "#111",
+          color: "white",
+          textAlign: "center",
+          padding: "40px",
+          marginTop: "40px",
+        }}
+      >
+        <h2>Albatross Jewels</h2>
+        <p>Elegance For Every Occasion</p>
+        <p>📱 WhatsApp: +91 8851304467</p>
+<section
   style={{
     padding: "50px 20px",
     background: "#fdf6f7",
@@ -853,21 +780,6 @@ alert("✅ Redirecting to WhatsApp...");
   <p>📧 Email: support@albatrossjewels.com</p>
   <p>🚚 Shipping Available Across India</p>
 </section>
-
-      {/* Footer */}
-      <footer
-        style={{
-          background: "#111",
-          color: "white",
-          textAlign: "center",
-          padding: "40px",
-          marginTop: "40px",
-        }}
-      >
-        <h2>Albatross Jewels</h2>
-        <p>Elegance For Every Occasion</p>
-        <p>📱 WhatsApp: +91 8851304467</p>
-
 
       </footer>
     </main>
