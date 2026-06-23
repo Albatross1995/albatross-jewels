@@ -32,7 +32,7 @@ const [newProduct, setNewProduct] = useState({
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const defaultProducts = [
+
   
 useEffect(() => {
   const savedProducts = localStorage.getItem("products");
@@ -72,7 +72,8 @@ useEffect(() => {
     );
   }
 }, [products]);
-    {
+  const defaultProducts = [   
+{
       name: "Gold Plated Chain",
       price: 499,
       image: "/products/gold-chain.jpeg",
