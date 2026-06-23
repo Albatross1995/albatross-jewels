@@ -20,6 +20,7 @@ const [newProduct, setNewProduct] = useState({
   category: "",
   description: "",
 });
+const [previewImage, setPreviewImage] = useState("");
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
 
@@ -148,6 +149,25 @@ description: "Premium Artificial Gold Plated, Anti Tarnish, Daily Wear Chain",
     },
   ];
 
+useEffect(() => {
+  const savedProducts = localStorage.getItem("products");
+
+  if (savedProducts) {
+    setProducts(JSON.parse(savedProducts));
+  } else {
+    setProducts(defaultProducts);
+  }
+}, []);
+
+useEffect(() => {
+  if (products.length > 0) {
+    localStorage.setItem(
+      "products",
+      JSON.stringify(products)
+    );
+  }
+}, [products]);
+
   const addToCart = (product: any) => {
   const existingProduct = cart.find(
     (item) => item.name === product.name
@@ -241,13 +261,15 @@ const addNewProduct = () => {
 
   alert("Product Added");
 
-  setNewProduct({
-    name: "",
-    price: "",
-    image: "",
-    category: "",
-    description: "",
-  });
+  setPreviewImage("");
+
+setNewProduct({
+  name: "",
+  price: "",
+  image: "",
+  category: "",
+  description: "",
+});
 };
 const deleteProduct = (productName: string) => {
   const updatedProducts = products.filter(
@@ -445,15 +467,36 @@ alert("✅ Redirecting to WhatsApp...");
     />
 
     <input
-      placeholder="Image Path"
-      value={newProduct.image}
-      onChange={(e) =>
-        setNewProduct({
-          ...newProduct,
-          image: e.target.value,
-        })
-      }
-    />
+  type="file"
+  accept="image/*"
+  onChange={(e: any) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+
+      setPreviewImage(imageUrl);
+
+      setNewProduct({
+        ...newProduct,
+        image: imageUrl,
+      });
+    }
+  }}
+/>
+{previewImage && (
+  <img
+    src={previewImage}
+    alt="Preview"
+    style={{
+      width: "120px",
+      height: "120px",
+      objectFit: "cover",
+      borderRadius: "10px",
+      marginTop: "10px",
+    }}
+  />
+)}
 
     <input
       placeholder="Category"
