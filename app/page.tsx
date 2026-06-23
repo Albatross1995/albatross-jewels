@@ -11,7 +11,15 @@ const [phone, setPhone] = useState("");
 const [address, setAddress] = useState("");
 const [coupon, setCoupon] = useState("");
 const [discount, setDiscount] = useState(0);
-
+const [isAdmin, setIsAdmin] = useState(false);
+const [adminPassword, setAdminPassword] = useState("");
+const [newProduct, setNewProduct] = useState({
+  name: "",
+  price: "",
+  image: "",
+  category: "",
+  description: "",
+});
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
 
@@ -24,7 +32,27 @@ const [discount, setDiscount] = useState(0);
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const products = [
+  const defaultProducts = [
+    const [products, setProducts] = useState<any[]>([]);
+
+useEffect(() => {
+  const savedProducts = localStorage.getItem("products");
+
+  if (savedProducts) {
+    setProducts(JSON.parse(savedProducts));
+  } else {
+    setProducts(defaultProducts);
+  }
+}, []);
+
+useEffect(() => {
+  if (products.length > 0) {
+    localStorage.setItem(
+      "products",
+      JSON.stringify(products)
+    );
+  }
+}, [products]);
     {
       name: "Gold Plated Chain",
       price: 499,
@@ -165,6 +193,55 @@ const applyCoupon = () => {
   }
 };
 
+const loginAdmin = () => {
+  if (adminPassword === "admin123") {
+    setIsAdmin(true);
+  } else {
+    alert("Wrong Password");
+  }
+};
+
+const addNewProduct = () => {
+  if (
+    !newProduct.name ||
+    !newProduct.price ||
+    !newProduct.image
+  ) {
+    alert("Fill all fields");
+    return;
+  }
+
+  products.push({
+    name: newProduct.name,
+    price: Number(newProduct.price),
+    image: newProduct.image,
+    category: newProduct.category,
+    description: newProduct.description,
+  });
+
+  alert("Product Added");
+
+  setNewProduct({
+    name: "",
+    price: "",
+    image: "",
+    category: "",
+    description: "",
+  });
+};
+const deleteProduct = (productName: string) => {
+  const updatedProducts = products.filter(
+    (p) => p.name !== productName
+  );
+
+  localStorage.setItem(
+    "products",
+    JSON.stringify(updatedProducts)
+  );
+
+  window.location.reload();
+};
+
   const orderOnWhatsApp = () => {
     if (!name || !phone || !address) {
   alert("Please fill all customer details");
@@ -243,6 +320,28 @@ alert("✅ Redirecting to WhatsApp...");
           }}
         >
           🛒 Cart ({totalItems})
+          <button
+  onClick={() => {
+    const pass = prompt("Enter Admin Password");
+
+    if (pass === "admin123") {
+      setIsAdmin(true);
+    } else {
+      alert("Wrong Password");
+    }
+  }}
+  style={{
+    marginLeft: "15px",
+    background: "black",
+    color: "white",
+    border: "none",
+    padding: "10px 15px",
+    borderRadius: "8px",
+    cursor: "pointer",
+  }}
+>
+  Admin
+</button>
         </div>
       </header>
 
@@ -291,6 +390,88 @@ alert("✅ Redirecting to WhatsApp...");
     Explore our most loved jewellery pieces.
   </p>
 </section>
+
+{isAdmin && (
+  <section
+    style={{
+      padding: "30px",
+      background: "#fff5f7",
+      margin: "20px",
+      borderRadius: "12px",
+    }}
+  >
+    <h2>Admin Panel</h2>
+
+    <input
+      placeholder="Product Name"
+      value={newProduct.name}
+      onChange={(e) =>
+        setNewProduct({
+          ...newProduct,
+          name: e.target.value,
+        })
+      }
+    />
+
+    <input
+      placeholder="Price"
+      value={newProduct.price}
+      onChange={(e) =>
+        setNewProduct({
+          ...newProduct,
+          price: e.target.value,
+        })
+      }
+    />
+
+    <input
+      placeholder="Image Path"
+      value={newProduct.image}
+      onChange={(e) =>
+        setNewProduct({
+          ...newProduct,
+          image: e.target.value,
+        })
+      }
+    />
+
+    <input
+      placeholder="Category"
+      value={newProduct.category}
+      onChange={(e) =>
+        setNewProduct({
+          ...newProduct,
+          category: e.target.value,
+        })
+      }
+    />
+
+    <textarea
+      placeholder="Description"
+      value={newProduct.description}
+      onChange={(e) =>
+        setNewProduct({
+          ...newProduct,
+          description: e.target.value,
+        })
+      }
+    />
+
+    <button
+      onClick={addNewProduct}
+      style={{
+        background: "#b76e79",
+        color: "white",
+        border: "none",
+        padding: "12px 20px",
+        borderRadius: "8px",
+        marginTop: "10px",
+      }}
+    >
+      Add Product
+    </button>
+  </section>
+)}
 
       {/* Products */}
       <section style={{ padding: "40px" }}>
