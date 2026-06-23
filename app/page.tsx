@@ -33,7 +33,17 @@ const [newProduct, setNewProduct] = useState({
   }, [cart]);
 
   const defaultProducts = [
-    const [products, setProducts] = useState<any[]>([]);
+  
+useEffect(() => {
+  const savedProducts = localStorage.getItem("products");
+
+  if (savedProducts) {
+    setProducts(JSON.parse(savedProducts));
+  } else {
+    setProducts(defaultProducts);
+  }
+}, []);
+const [products, setProducts] = useState<any[]>([]);
 
 useEffect(() => {
   const savedProducts = localStorage.getItem("products");
@@ -44,6 +54,15 @@ useEffect(() => {
     setProducts(defaultProducts);
   }
 }, []);
+
+useEffect(() => {
+  if (products.length > 0) {
+    localStorage.setItem(
+      "products",
+      JSON.stringify(products)
+    );
+  }
+}, [products]);
 
 useEffect(() => {
   if (products.length > 0) {
